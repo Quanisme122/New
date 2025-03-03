@@ -1,10 +1,11 @@
-import { PageProps } from 'next';
 
-export async function generateMetadata({ params }: PageProps<{ slug: string }>) {
+type Params = { slug: string };
+
+export async function generateMetadata({ params }: { params: Params }) {
   return { title: `Post: ${params.slug}` };
 }
 
-export default function Page({ params }: PageProps<{ slug: string }>) {
+export default function Page({ params }: { params: Params }) {
   return (
     <>
       <h1>Slug: {params.slug}</h1>
@@ -13,3 +14,4 @@ export default function Page({ params }: PageProps<{ slug: string }>) {
     </>
   );
 }
+
